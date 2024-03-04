@@ -254,7 +254,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./gpp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gross primary production and solar radiation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gross primary production and photosynthesis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -403,7 +403,7 @@ Figure&nbsp;5.1: Major carbon fluxes and pools in land ecosystems. Figure from <
 </div>
 <section id="net-primary-productivity" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="net-primary-productivity"><span class="header-section-number">5.1.1</span> Net primary productivity</h3>
-<p>C assimilated by photosynthesis is initially present as <em>non-structural C</em> (NSC) in the form of hydrocarbons (sugars). Some of the assimilated C is stored internally in the form of starch to fuel the <em>reserves</em> pool. Some of the assimilated carbon is consumed by <em>autotrophic respiration</em> (<span class="math inline">\(R_a\)</span>) which subsumes different processes, including maintaining vital functions of the plant (maintenance respiration), inevitable losses during photosynthesis (leaf dark respiration, <span class="math inline">\(R_d\)</span>, see <a href="gpp.html#sec-fvcb" class="quarto-xref"><span>Section 4.4.5</span></a>), and energetic costs for biomass synthesis (growth respiration). The remainder is available for growth in different compartments (leaves, wood, fine roots, seeds).</p>
+<p>C assimilated by photosynthesis is initially present as <em>non-structural C</em> (NSC) in the form of hydrocarbons (sugars). Some of the assimilated C is stored internally in the form of starch to fuel the <em>reserves</em> pool. Some of the assimilated carbon is consumed by <em>autotrophic respiration</em> (<span class="math inline">\(R_a\)</span>) which subsumes different processes, including maintaining vital functions of the plant (maintenance respiration), inevitable losses during photosynthesis (leaf dark respiration, <span class="math inline">\(R_d\)</span>, see <a href="gpp.html#sec-fvcb" class="quarto-xref"><span>Section 4.3.5</span></a>), and energetic costs for biomass synthesis (growth respiration). The remainder is available for growth in different compartments (leaves, wood, fine roots, seeds).</p>
 <p>At the plant-level, C used for growth is supplied by NSC. The availability of NSC for growth depends on the balance of C assimilation and autotrophic respiration, is influenced by abiotic conditions (temperature, plant desiccation), and varies over the seasons. For example, when leaves are flushed in deciduous plants, the required C is drawn from the NSC pool. Wood is produced not evenly over the seasons, but in a limited period during the growing season which varies strongly between species. Grasses switch from a vegetative growth phase, producing leaves, in the early season to a seed-producing phase later.</p>
 <p>Over longer (<span class="math inline">\(\sim\)</span>annual) time scales, the amount of C invested into growth of new biomass in leaves (<span class="math inline">\(\Delta C_\mathrm{leaves}\)</span>), fine roots (<span class="math inline">\(\Delta C_\mathrm{roots}\)</span>), and wood (<span class="math inline">\(\Delta C_\mathrm{wood}\)</span>) plus the production organic compounds released through leaves (volatile organic compounds) and roots (exudates) corresponds to the gross primary productivity minus autotrophic respiration. This quantity is referred to as the <em>net primary productivity</em> (NPP) and is commonly expressed for annual total fluxes. <span id="eq-npp"><span class="math display">\[
 \begin{aligned}
@@ -736,10 +736,12 @@ Figure&nbsp;5.8: Parameters of the C cascade model. ‘bpe’ is the biomass pro
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(year, slitt, <span class="at">color =</span> <span class="st">"Slow litter C"</span>)) <span class="sc">+</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(year, fsoil, <span class="at">color =</span> <span class="st">"Fast soil C"</span>)) <span class="sc">+</span></span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(year, ssoil, <span class="at">color =</span> <span class="st">"Slow soil C"</span>)) <span class="sc">+</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">2000</span>, <span class="dv">6000</span>) <span class="sc">+</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  khroma<span class="sc">::</span><span class="fu">scale_color_okabeito</span>(<span class="at">name =</span> <span class="st">""</span>) <span class="sc">+</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Simulation year"</span>, <span class="at">y =</span> <span class="st">"Pool size (PgC)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">2500</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">5500</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">2000</span>, <span class="dv">6000</span>) <span class="sc">+</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  khroma<span class="sc">::</span><span class="fu">scale_color_okabeito</span>(<span class="at">name =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Simulation year"</span>, <span class="at">y =</span> <span class="st">"Pool size (PgC)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-ccascade-simulations" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -748,7 +750,7 @@ Figure&nbsp;5.8: Parameters of the C cascade model. ‘bpe’ is the biomass pro
 <img src="ecosystemcarbon_files/figure-html/fig-ccascade-simulations-1.png" class="img-fluid figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ccascade-simulations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.9: Time series of the pool sizes in the C cascade model, forced with an increase of GPP from 100 to 120 PgC yr<sup>-1</sup>. The first 2000 simulation years are not shown as they are used for model spin-up.
+Figure&nbsp;5.9: Time series of the pool sizes in the C cascade model, forced with an increase of GPP from 100 to 120 PgC yr<sup>-1</sup>. The first 2000 simulation years are not shown as they are used for model spin-up. The years used for quantifying relative changes below are indicated by the vertical dotted lines.
 </figcaption>
 </figure>
 </div>
@@ -777,7 +779,7 @@ Figure&nbsp;5.9: Time series of the pool sizes in the C cascade model, forced wi
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(value_2500, value_5500, <span class="at">color =</span> variable)) <span class="sc">+</span></span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="fl">1.2</span>, <span class="at">color =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  khroma<span class="sc">::</span><span class="fu">scale_color_okabeito</span>(<span class="at">name =</span> <span class="st">""</span>) <span class="sc">+</span></span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Pool size in year 2500 (PgC)"</span>, </span>
@@ -1402,8 +1404,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./gpp.html" class="pagination-link" aria-label="Gross primary production and solar radiation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gross primary production and solar radiation</span></span>
+      <a href="./gpp.html" class="pagination-link" aria-label="Gross primary production and photosynthesis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gross primary production and photosynthesis</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
