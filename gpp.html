@@ -1050,33 +1050,34 @@ g_s = \left( 1 + \frac{g_1}{\sqrt{D}} \right) \frac{A}{c_a - \Gamma^\ast}
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>wdf <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/wdf_fdk.rds"</span>))</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># get absorbed photosynthetically active radiation APAR</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>wdf <span class="ot">&lt;-</span> wdf <span class="sc">|&gt;</span> </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">apar =</span> fapar <span class="sc">*</span> ppfd)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># fit linear model of GPP ~ APAR with zero intercept</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>linmod <span class="ot">&lt;-</span> <span class="fu">lm</span>(gpp <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> apar, <span class="at">data =</span> wdf)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>rsq_val <span class="ot">&lt;-</span> <span class="fu">summary</span>(linmod)<span class="sc">$</span>r.squared</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>rsq_lab <span class="ot">&lt;-</span> <span class="fu">format</span>( rsq_val, <span class="at">digits =</span> <span class="dv">2</span> )</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>wdf <span class="sc">|&gt;</span> </span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(apar, gpp)) <span class="sc">+</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">trans =</span> <span class="st">"log"</span>, <span class="at">option =</span> <span class="st">"magma"</span>, <span class="at">name =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="fu">coef</span>(linmod), <span class="at">linetype=</span><span class="st">"dotted"</span>) <span class="sc">+</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"PPFD"</span>  <span class="sc">%*%</span> <span class="st">"fAPAR (mol m"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>}, <span class="st">"s"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>)),</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"GPP (gC m"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>}, <span class="st">"s"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>)),</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">bquote</span>(</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        <span class="fu">italic</span>(R)<span class="sc">^</span><span class="dv">2</span> <span class="sc">==</span> .(rsq_lab)</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hexbin)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>wdf <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/wdf_fdk.rds"</span>))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># get absorbed photosynthetically active radiation APAR</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>wdf <span class="ot">&lt;-</span> wdf <span class="sc">|&gt;</span> </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">apar =</span> fapar <span class="sc">*</span> ppfd)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># fit linear model of GPP ~ APAR with zero intercept</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>linmod <span class="ot">&lt;-</span> <span class="fu">lm</span>(gpp <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> apar, <span class="at">data =</span> wdf)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>rsq_val <span class="ot">&lt;-</span> <span class="fu">summary</span>(linmod)<span class="sc">$</span>r.squared</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>rsq_lab <span class="ot">&lt;-</span> <span class="fu">format</span>( rsq_val, <span class="at">digits =</span> <span class="dv">2</span> )</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>wdf <span class="sc">|&gt;</span> </span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(apar, gpp)) <span class="sc">+</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">trans =</span> <span class="st">"log"</span>, <span class="at">option =</span> <span class="st">"magma"</span>, <span class="at">name =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="fu">coef</span>(linmod), <span class="at">linetype=</span><span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"PPFD"</span>  <span class="sc">%*%</span> <span class="st">"fAPAR (mol m"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>}, <span class="st">"s"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>)),</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"GPP (gC m"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>}, <span class="st">"s"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>)),</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">bquote</span>(</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        <span class="fu">italic</span>(R)<span class="sc">^</span><span class="dv">2</span> <span class="sc">==</span> .(rsq_lab)</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-gpp-constlue" class="quarto-figure quarto-figure-center quarto-float anchored">
