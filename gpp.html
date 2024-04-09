@@ -355,7 +355,8 @@ window.Quarto = {
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">4.3.4</span> Summary</a></li>
   <li><a href="#sec-fvcb" id="toc-sec-fvcb" class="nav-link" data-scroll-target="#sec-fvcb"><span class="header-section-number">4.3.5</span> Response to light and CO<sub>2</sub></a></li>
   <li><a href="#sec-ftemp" id="toc-sec-ftemp" class="nav-link" data-scroll-target="#sec-ftemp"><span class="header-section-number">4.3.6</span> Response to temperature</a></li>
-  <li><a href="#sec-c4" id="toc-sec-c4" class="nav-link" data-scroll-target="#sec-c4"><span class="header-section-number">4.3.7</span> C<sub>4</sub> photosynthesis</a></li>
+  <li><a href="#acclimation-and-adptation-of-topt" id="toc-acclimation-and-adptation-of-topt" class="nav-link" data-scroll-target="#acclimation-and-adptation-of-topt"><span class="header-section-number">4.3.7</span> Acclimation and adptation of <em>T</em><sub>opt</sub></a></li>
+  <li><a href="#sec-c4" id="toc-sec-c4" class="nav-link" data-scroll-target="#sec-c4"><span class="header-section-number">4.3.8</span> C<sub>4</sub> photosynthesis</a></li>
   </ul></li>
   <li><a href="#sec-transpiration" id="toc-sec-transpiration" class="nav-link" data-scroll-target="#sec-transpiration"><span class="header-section-number">4.4</span> Transpiration and leaf water-carbon coupling</a>
   <ul class="collapse">
@@ -973,10 +974,9 @@ Figure&nbsp;4.8: The light response curve of the electron transport-limited net 
 </section>
 <section id="sec-ftemp" class="level3" data-number="4.3.6">
 <h3 data-number="4.3.6" class="anchored" data-anchor-id="sec-ftemp"><span class="header-section-number">4.3.6</span> Response to temperature</h3>
-<p>All processes involved in photosynthesis are strongly affected by temperature. Enzymatic rates, like Rubisco carboxylation, have a temperature at which reaction rates have a maximum. As a consequence, assimilation rates also attain a maximum at a certain temperature - the <em>temperature optimum</em> (<em>T</em><sub>opt</sub>). In contrast, dark respiration (<span class="math inline">\(R_d\)</span>) monotonically increases with temperature. That is, it continues to rise as temperatures go up - without attaining a maximum. As a consequence, net assimilation rates decline even faster above their temperature optimum than without considering <span class="math inline">\(R_d\)</span>.</p>
-<p>Similarly, the balance of oxygenation versus carboxylation is strongly affected by temperature. This leads to a temperature dependency of assimilation rates <span class="math inline">\(A_C\)</span> and <span class="math inline">\(A_J\)</span>. Such a temperature dependency of leaf CO<sub>2</sub> assimilation rates can be measured in the field by exposing a leaf to a range of temperatures (within a relatively short period of time) and measuring assimilation rates.</p>
-<p>The Farquhar-von Caemmerer Berry model (see box above) and the temperature dependency of factors therein (<span class="math inline">\(V_\mathrm{cmax}\)</span>, <span class="math inline">\(J_\mathrm{max}\)</span>, <span class="math inline">\(K_c\)</span>, <span class="math inline">\(K_o\)</span>, and <span class="math inline">\(\Gamma^\ast\)</span>) provide a basis for modelling the temperature dependency of assimilation rates.</p>
-<p>The instantaneous temperature dependency of leaf-level photosynthesis reflects the combined effect of the temperature dependencies in <span class="math inline">\(V_\mathrm{cmax}\)</span>, <span class="math inline">\(J_\mathrm{max}\)</span>, <span class="math inline">\(K_c\)</span>, <span class="math inline">\(K_o\)</span>, and <span class="math inline">\(\Gamma^\ast\)</span>, and is shown in <a href="#fig-temp_dep" class="quarto-xref">Figure&nbsp;<span>4.9</span></a>. For this, <span class="math inline">\(c_i\)</span>, <span class="math inline">\(V_\mathrm{cmax}\)</span>, <span class="math inline">\(J_\mathrm{max}\)</span>, <span class="math inline">\(K_c\)</span>, <span class="math inline">\(K_o\)</span>, and <span class="math inline">\(\Gamma^\ast\)</span> at a reference temperature are assumed to be given.</p>
+<p>All processes involved in photosynthesis are strongly affected by temperature. Enzymatic rates, like Rubisco carboxylation, have a temperature at which reaction rates have a maximum. As a consequence, assimilation rates also attain a maximum at a certain temperature - the <em>temperature optimum</em> (<em>T</em><sub>opt</sub>). In contrast, dark respiration (<span class="math inline">\(R_d\)</span>) monotonically increases with temperature. That is, it continues to rise as temperatures go up - without attaining a maximum. As a consequence, the decline of net assimilation rates is even faster at towards high temperatures than that of gross assimilation rates.</p>
+<p>The temperature dependency of leaf CO<sub>2</sub> assimilation rates can be measured in the field by exposing a leaf to a range of temperatures (within a relatively short period of time) and measuring assimilation rates for each temperature. When looking at such measurements, a temperature optimum of net photosynthesis is evident.</p>
+<p>The Farquhar-von Caemmerer Berry model for C<sub>3</sub> photosynthesis (see box above) and the mathematical description of temperature dependencies of factors therein (<span class="math inline">\(V_\mathrm{cmax}\)</span>, <span class="math inline">\(J_\mathrm{max}\)</span>, <span class="math inline">\(K_c\)</span>, <span class="math inline">\(K_o\)</span>, and <span class="math inline">\(\Gamma^\ast\)</span>) provide a basis for modelling the temperature dependency of assimilation rates. Such modelled temperature dependencies are shown in <a href="#fig-temp_dep" class="quarto-xref">Figure&nbsp;<span>4.9</span></a>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1097,7 +1097,9 @@ Figure&nbsp;4.9: Temperature dependencies of quantities in the FvCB model. The d
 </div>
 </div>
 </div>
-<p>As shown in <a href="#fig-temp_dep" class="quarto-xref">Figure&nbsp;<span>4.9</span></a>, the instantaneous response of assimilation rates to temperature has a peak above which rates, especially <span class="math inline">\(A_C\)</span>, decline sharply. Dark respiration (<span class="math inline">\(R_d\)</span>) monotonically increases with temperature which accentuates the decline in net assimilation <span class="math inline">\(A_n\)</span> with increasing temperature.</p>
+</section>
+<section id="acclimation-and-adptation-of-topt" class="level3" data-number="4.3.7">
+<h3 data-number="4.3.7" class="anchored" data-anchor-id="acclimation-and-adptation-of-topt"><span class="header-section-number">4.3.7</span> Acclimation and adptation of <em>T</em><sub>opt</sub></h3>
 <p>The temperature dependencies shown in <a href="#fig-temp_dep" class="quarto-xref">Figure&nbsp;<span>4.9</span></a> are referred to as <em>instantaneous</em> because <span class="math inline">\(c_i\)</span>, <span class="math inline">\(V_\mathrm{cmax}\)</span>, and <span class="math inline">\(J_\mathrm{max}\)</span> acclimate to the environment on time scales of days to weeks and <span class="math inline">\(g_s\)</span> is regulated on time scales of seconds to minutes. This acclimation affects the temperature response. Therefore, the functional relationships shown here are relevant for understanding how CO<sub>2</sub> uptake varies in response to temperature over the course of a day. However, over longer time scales, plants acclimate to their growth environment such that the temperature optimum of photosynthesis (the peak of the <span class="math inline">\(A_n\)</span>-temperature curve) shifts as a function of the <em>growth temperature</em> - an average temperature to which the leaf is exposed <a href="#fig-topt-kumarathunge" class="quarto-xref">Figure&nbsp;<span>4.10</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -1115,8 +1117,8 @@ Figure&nbsp;4.10: Temperature optimum of leaf net photosynthesis at an intercell
 </div>
 <!-- XXX LES 2: Add box explaining acclimated vs. instantaneous response (Way & Yamori, 2014) -->
 </section>
-<section id="sec-c4" class="level3" data-number="4.3.7">
-<h3 data-number="4.3.7" class="anchored" data-anchor-id="sec-c4"><span class="header-section-number">4.3.7</span> C<sub>4</sub> photosynthesis</h3>
+<section id="sec-c4" class="level3" data-number="4.3.8">
+<h3 data-number="4.3.8" class="anchored" data-anchor-id="sec-c4"><span class="header-section-number">4.3.8</span> C<sub>4</sub> photosynthesis</h3>
 <p>Coming soon.</p>
 </section>
 </section>
