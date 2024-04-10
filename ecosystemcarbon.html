@@ -355,10 +355,9 @@ window.Quarto = {
   <li><a href="#sec-nep" id="toc-sec-nep" class="nav-link" data-scroll-target="#sec-nep"><span class="header-section-number">5.1.6</span> Net ecosystem productivity</a></li>
   <li><a href="#net-biome-productivity" id="toc-net-biome-productivity" class="nav-link" data-scroll-target="#net-biome-productivity"><span class="header-section-number">5.1.7</span> Net biome productivity</a></li>
   </ul></li>
-  <li><a href="#sec-ccascade" id="toc-sec-ccascade" class="nav-link" data-scroll-target="#sec-ccascade"><span class="header-section-number">5.2</span> The C cascade model</a></li>
-  <li><a href="#tree-growth-and-allometry" id="toc-tree-growth-and-allometry" class="nav-link" data-scroll-target="#tree-growth-and-allometry"><span class="header-section-number">5.3</span> Tree growth and allometry</a></li>
-  <li><a href="#sec-forest-dynamics" id="toc-sec-forest-dynamics" class="nav-link" data-scroll-target="#sec-forest-dynamics"><span class="header-section-number">5.4</span> Forest dynamics</a></li>
-  <li><a href="#sec-disturbances" id="toc-sec-disturbances" class="nav-link" data-scroll-target="#sec-disturbances"><span class="header-section-number">5.5</span> Fire and other disturbances</a></li>
+  <li><a href="#tree-growth-and-allometry" id="toc-tree-growth-and-allometry" class="nav-link" data-scroll-target="#tree-growth-and-allometry"><span class="header-section-number">5.2</span> Tree growth and allometry</a></li>
+  <li><a href="#sec-forest-dynamics" id="toc-sec-forest-dynamics" class="nav-link" data-scroll-target="#sec-forest-dynamics"><span class="header-section-number">5.3</span> Forest dynamics</a></li>
+  <li><a href="#sec-disturbances" id="toc-sec-disturbances" class="nav-link" data-scroll-target="#sec-disturbances"><span class="header-section-number">5.4</span> Fire and other disturbances</a></li>
   </ul>
 </nav>
     </div>
@@ -405,7 +404,20 @@ Figure&nbsp;5.1: Major carbon fluxes and pools in land ecosystems. Figure from <
 <section id="non-structural-carbon-and-autotrophic-respiration" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="non-structural-carbon-and-autotrophic-respiration"><span class="header-section-number">5.1.1</span> Non-structural carbon and autotrophic respiration</h3>
 <p>C assimilated by photosynthesis is initially present as <em>non-structural C</em> (NSC) in the form of hydrocarbons (sugars). Some of the assimilated C is stored internally in the form of starch to fuel the <em>reserves</em> pool. Some of the assimilated carbon is consumed by <em>autotrophic respiration</em> (<span class="math inline">\(R_a\)</span>) which subsumes different processes, including maintaining vital functions of the plant (<em>maintenance respiration</em>), inevitable losses during photosynthesis (<em>leaf dark respiration</em>, <span class="math inline">\(R_d\)</span>, see <a href="gpp.html#sec-fvcb" class="quarto-xref"><span>Section 4.3.5</span></a>), and energetic costs for biomass synthesis (<em>growth respiration</em>, <span class="math inline">\(R_g\)</span>). Growth respiration produces CO<sub>2</sub> as new biomass is formed, scales with the rate of new biomass formation (BP, see below), and is typically taken to be independent of temperature in vegetation models.</p>
-<p>Maintenance respiration depends on plant size and temperature. It is commonly modelled as being proportional to the pool size of live biomass (sapwood, fine roots). Hence, the respiratory costs is higher for larger plants than for small plants. In vegetation models, <span class="math inline">\(R_a\)</span> is often assumed to depend on the C:N ratio (mass ratio of C to nitrogen in biomass), with lower C:N ratios associated with higher respiration rates. Temperature drives a strong instantaneous response in <span class="math inline">\(R_a\)</span>, but respiration rates acclimate to average growth temperatures such that the relationship between <span class="math inline">\(R_a\)</span> and temperature is less steep when considering longer time scales or variations across different climates. A typical temperature dependency of respiration, used in the LPJ vegetation model <span class="citation" data-cites="lloyd94 sitch03gcb">(<a href="references.html#ref-lloyd94" role="doc-biblioref">Lloyd and Taylor 1994</a>; <a href="references.html#ref-sitch03gcb" role="doc-biblioref">Sitch et al. 2003</a>)</span>, is given by <a href="#eq-resp-maint" class="quarto-xref">Equation&nbsp;<span>5.1</span></a> and visualised in <a href="#fig-resp-maint" class="quarto-xref">Figure&nbsp;<span>5.2</span></a>. <span id="eq-resp-maint"><span class="math display">\[
+<p>Maintenance respiration depends on plant size and temperature. It is commonly modelled as being proportional to the pool size of live biomass (sapwood, fine roots). Hence, the respiratory costs is higher for larger plants than for small plants. In vegetation models, <span class="math inline">\(R_a\)</span> is often assumed to depend on the C:N ratio (mass ratio of C to nitrogen in biomass), with lower C:N ratios associated with higher respiration rates. Temperature drives a strong instantaneous response in <span class="math inline">\(R_a\)</span>, but respiration rates acclimate to average growth temperatures such that the relationship between <span class="math inline">\(R_a\)</span> and temperature is less steep when considering longer time scales or variations across different climates.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Temperature dependency of respiration
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A typical temperature dependency of respiration, used in the LPJ vegetation model <span class="citation" data-cites="lloyd94 sitch03gcb">(<a href="references.html#ref-lloyd94" role="doc-biblioref">Lloyd and Taylor 1994</a>; <a href="references.html#ref-sitch03gcb" role="doc-biblioref">Sitch et al. 2003</a>)</span>, is given by <a href="#eq-resp-maint" class="quarto-xref">Equation&nbsp;<span>5.1</span></a> and visualised in <a href="#fig-resp-maint" class="quarto-xref">Figure&nbsp;<span>5.2</span></a>. <span id="eq-resp-maint"><span class="math display">\[
 \begin{align}
 R_{m,i} &amp;= r_i C_i f(T) \\
 f(T)    &amp;= \exp \left( E_0 \left( \frac{1}{56.02} - \frac{1}{T+46.02} \right) \right)
@@ -439,6 +451,9 @@ f(T)    &amp;= \exp \left( E_0 \left( \frac{1}{56.02} - \frac{1}{T+46.02} \right
 Figure&nbsp;5.2: Temperature dependency of maintenance respiration, modelled based on a modified Arrhenius equation <span class="citation" data-cites="lloyd94 sitch03gcb">(<a href="references.html#ref-lloyd94" role="doc-biblioref">Lloyd and Taylor 1994</a>; <a href="references.html#ref-sitch03gcb" role="doc-biblioref">Sitch et al. 2003</a>)</span>.
 </figcaption>
 </figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -555,7 +570,7 @@ Table&nbsp;5.1: Carbon allocation fractions in forests and grasslands. Wood cont
 </section>
 <section id="biomass-turnover-and-litterfall" class="level3" data-number="5.1.4">
 <h3 data-number="5.1.4" class="anchored" data-anchor-id="biomass-turnover-and-litterfall"><span class="header-section-number">5.1.4</span> Biomass turnover and litterfall</h3>
-<p>Turnover of different plant compartments is driven by different processes. The leaf turnover time (<em>leaf longevity</em>) varies strongly between deciduous and evergreen species and is related to the leaf mass per unit leaf area (LMA - thicker leaves live longer). Leaves may also be damaged and shed after severe water stress and exposure to desiccation. Fine roots turn over at time scales of months to years. Woody biomass is much more long-lived than fine roots and leaf biomass. Its turnover is governed by tree mortality (<a href="#sec-forest-dynamics" class="quarto-xref"><span>Section 5.4</span></a>) and ecosystem disturbances (<a href="#sec-disturbances" class="quarto-xref"><span>Section 5.5</span></a>) or the mortality of individual branches of a tree.</p>
+<p>Turnover of different plant compartments is driven by different processes. The leaf turnover time (<em>leaf longevity</em>) varies strongly between deciduous and evergreen species and is related to the leaf mass per unit leaf area (LMA - thicker leaves live longer). Leaves may also be damaged and shed after severe water stress and exposure to desiccation. Fine roots turn over at time scales of months to years. Woody biomass is much more long-lived than fine roots and leaf biomass. Its turnover is governed by tree mortality (<a href="#sec-forest-dynamics" class="quarto-xref"><span>Section 5.3</span></a>) and ecosystem disturbances (<a href="#sec-disturbances" class="quarto-xref"><span>Section 5.4</span></a>) or the mortality of individual branches of a tree.</p>
 <!-- LES II: tree mortality -->
 </section>
 <section id="soil-and-litter-c-dynamics" class="level3" data-number="5.1.5">
@@ -640,7 +655,7 @@ Figure&nbsp;5.7: Classical model of ecosystem an ecosystem’s carbon fluxes and
 </div>
 </div>
 <p>However, field data of biomass stocks in mature forests seem to Odum’s steady state (and zero NEP) model <span class="citation" data-cites="luyssaert08nat">(<a href="references.html#ref-luyssaert08nat" role="doc-biblioref">Luyssaert et al. 2008</a>)</span>. Biometric data (forest inventories) and eddy covariance flux measurements from forests do not show a clear decline of NEP towards zero with increasing stand age, but rather show a sustained positive NEP over several decades to centuries since forest stand development.</p>
-<p>Will forests accumulate C infinitely? Tracking soil C stocks over millennia is <em>per se</em> not possible but clear patterns of a positive influence of soil age on SOM content would have to be evident in data - but are not. Biomass C stocks do not increase indefinitely, either. Individual trees in maturing forest stands continue accumulating biomass but the lifetime of a tree is limited due to hydraulic, mechanical, or C balance constraints whereby increasing respiratory costs pose limits to further growth and may trigger mortality. <em>Self-thinning</em> drives the exclusion of individual trees based on the competition for limited resources and leads to a negative relationship between the number and the average size of trees in a maturing forest stand (see <a href="#sec-forest-dynamics" class="quarto-xref"><span>Section 5.4</span></a>). Therefore, although individual trees may accumulate C in the form of biomass for centuries, the biomass C accumulation at the stand level is much lower due to the declining tree number and the associated mortality, turnover, and decomposition of affected trees.</p>
+<p>Will forests accumulate C infinitely? Tracking soil C stocks over millennia is <em>per se</em> not possible but clear patterns of a positive influence of soil age on SOM content would have to be evident in data - but are not. Biomass C stocks do not increase indefinitely, either. Individual trees in maturing forest stands continue accumulating biomass but the lifetime of a tree is limited due to hydraulic, mechanical, or C balance constraints whereby increasing respiratory costs pose limits to further growth and may trigger mortality. <em>Self-thinning</em> drives the exclusion of individual trees based on the competition for limited resources and leads to a negative relationship between the number and the average size of trees in a maturing forest stand (see <a href="#sec-forest-dynamics" class="quarto-xref"><span>Section 5.3</span></a>). Therefore, although individual trees may accumulate C in the form of biomass for centuries, the biomass C accumulation at the stand level is much lower due to the declining tree number and the associated mortality, turnover, and decomposition of affected trees.</p>
 <p>Very old stands are dominated by few very large individual trees that contribute strongly to the total ecosystem biomass. However, also these individuals are inevitably affected by mortality. Once they fall, the ecosystem C stock rapidly declines (NEP is negative) and they create a forest <em>gap</em> that enables younger and smaller individuals to benefit from increased light levels. Smaller individuals around the newly formed gap accelerate growth, reach the canopy, and eventually fill the gap.</p>
 <p>These dynamics imply that the NEP is rarely zero, but is positive for most of the time, except when affected by rare mortality events of large individuals. The spatial extent of a forest gap is on the order of 10<sup>0</sup>-10<sup>1</sup> m and the maximum tree longevity is on the centuries (and the probability of a tree dying in a given year is its inverse - on the order of 10<sup>-2</sup>). This implies that the probability of observing a gap formation within a given areal extent is a function of the size of the areal extent. The larger the areal extent, the larger the probability that the influence of gap formation on NEP is captured and the large negative NEP of the gap is balanced by the small positive NEP of the remaining forest area. With an increasing size of the areal extent, the mean NEP should therefore tend to zero.</p>
 <p>Forest monitoring plots are usually on the order of 20-50 m in radius. Hence, such data is sensitive to whether the observed plots are a representative sample of forest dynamics and forest gap formation across the landscape.</p>
@@ -669,10 +684,16 @@ Figure&nbsp;5.8: Scale in ecological investigations. The C balance of a forest p
 </div>
 <p>At the landscape-level, a forest can be conceived as a mosaic of forest patches, characterized by different times since the last stand-replacing disturbance. The first years after a disturbance, ecosystems tend to lose C (negative NEP). This is because the respiration from decomposing litter outweighs the biomass production of regrowth. After a few years, this balance reverses and the ecosystem total C stock increases. Although individual patches tend to have a positive NEP, a small portion of young patches will have a strongly negative NEP. When considering a large number of patches in absence of environmental change (driving trends in GPP, <span class="math inline">\(R_a\)</span>, <span class="math inline">\(R_h\)</span> or the disturbance probability), the mean NEP across patches - this is the NBP - tends to zero.</p>
 <p>The terrestrial carbon balance can be understood of the global total NBP.</p>
-</section>
-</section>
-<section id="sec-ccascade" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="sec-ccascade"><span class="header-section-number">5.2</span> The C cascade model</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The C cascade model
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>The C cascade model (<a href="#fig-ccascade" class="quarto-xref">Figure&nbsp;<span>5.9</span></a>) integrates the information about ecosystem carbon pools and fluxes, provided above in this Chapter. A key insight is that C only enters ecosystems through photosynthesis, measured at the ecosystem-level by GPP. Once in the system, it fuels a “cascade” of pools. They can be conceived as a <em>cascade</em> because biomass pools receive C inputs only through GPP (minus <span class="math inline">\(R_a\)</span>), litter pools only receive C inputs through biomass turnover, and SOM pools only receive C inputs through litter decomposition. Along this cascade, autotrophic and heterotrophic respiration incurs an ecosystem C loss. The rate at which C cascades through this system depends on the turnover rates of the individual pools and on the relative partitioning (allocation and partitioning to different litter and SOM pools) into the “downstream” pools. A schematic of the C cascade can be drawn by extending <a href="#fig-littersom" class="quarto-xref">Figure&nbsp;<span>5.6</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -699,15 +720,19 @@ Figure&nbsp;5.9: The carbon cascade in terrestrial ecosystems. Boxes indicate po
 <p>…, the same linear dependency of the total system C storage <span class="math inline">\(\sum_i C_i^\ast\)</span> emerges: <span class="math display">\[
 \frac{I}{I_0} = \frac{\sum_i C_i^\ast}{\sum_i C_{i,0}^\ast} = \frac{C_i^\ast}{C_{i,0}^\ast}, \; \forall i
 \]</span> The symbol <span class="math inline">\(\forall\)</span> means ‘for all’. However, whether a model with constant <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(k_i\)</span>, <span class="math inline">\(e\)</span>, and <span class="math inline">\(f_\mathrm{fast}\)</span> is a good representation of real ecosystems’ responses to environmental change is questionable. It is well established, for example, that <span class="math inline">\(\alpha\)</span> is very sensitive altered soil nutrient availability and changes in CO<sub>2</sub> experiments <span class="citation" data-cites="poorter12">(<a href="references.html#ref-poorter12" role="doc-biblioref">Poorter et al. 2012</a>)</span>. The turnover rate of biomass in forests (or tree longevity) may be affected by accelerated self-thinning if environmental change positively influences tree-level growth (e.g., through CO<sub>2</sub> fertilization or an extension of the growing season) <span class="citation" data-cites="marques23">(<a href="references.html#ref-marques23" role="doc-biblioref">Marqués et al. 2023</a>)</span>. This implies a departure from the linear systems behavior of the C cascade model described by the two points above.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Simulating the C cascade
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The two points (see above) are implemented in a multi-box model:</p>
 <ul>
@@ -871,6 +896,7 @@ Figure&nbsp;5.12: Initial pool size (after spin-up and before step-change in GPP
 <p>This illustrates that the relative change in the size of each pool in the C cascade is identical and corresponds to the relative change in GPP. In other words, the C cascade with constant allocation, turnover rates, and efficiencies exhibits a <em>linear systems dynamics</em>.</p>
 </div>
 </div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -998,18 +1024,19 @@ Figure&nbsp;5.13: Simulated biomass C and the ecosystem C balance (measured by N
 </div>
 </div>
 </section>
-<section id="tree-growth-and-allometry" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="tree-growth-and-allometry"><span class="header-section-number">5.3</span> Tree growth and allometry</h2>
+</section>
+<section id="tree-growth-and-allometry" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="tree-growth-and-allometry"><span class="header-section-number">5.2</span> Tree growth and allometry</h2>
 <p>Coming soon.</p>
 <!-- XXX for LES 2 -->
 </section>
-<section id="sec-forest-dynamics" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="sec-forest-dynamics"><span class="header-section-number">5.4</span> Forest dynamics</h2>
+<section id="sec-forest-dynamics" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="sec-forest-dynamics"><span class="header-section-number">5.3</span> Forest dynamics</h2>
 <p>Coming soon.</p>
 <!-- XXX for LES 2 -->
 </section>
-<section id="sec-disturbances" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="sec-disturbances"><span class="header-section-number">5.5</span> Fire and other disturbances</h2>
+<section id="sec-disturbances" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="sec-disturbances"><span class="header-section-number">5.4</span> Fire and other disturbances</h2>
 <p>Coming soon.</p>
 <!-- XXX for LES 2 -->
 <!-- - Land: GPP-NPP, vegC, soilC, Ra, Rh -->

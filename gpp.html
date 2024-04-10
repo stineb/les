@@ -513,15 +513,17 @@ Figure&nbsp;4.2: The fraction of absorbed photosynthetically active radiation (f
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Basis of the Beer-Lambert law for canopy light extinction
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Following the Beer-Lambert law model, the light extinction at canopy depth <span class="math inline">\(z\)</span> (measuring from the top) is proportional to the light intensity at that depth and an “optical density” <span class="math inline">\(\mu\)</span>. <span id="eq-optical-density"><span class="math display">\[
 \frac{\mathrm{d}I}{\mathrm{d}z} = -\mu\;I(z)
@@ -535,6 +537,7 @@ I(z_0) = I_0 \; e^{-kL}
 \]</span> and the fraction of absorbed (photosynthetically active) radiation is <span class="math display">\[
 \mathrm{fAPAR} = 1 - e^{-kL}\;.
 \]</span></p>
+</div>
 </div>
 </div>
 <p>The radiation <span class="math inline">\(I\)</span> consists of <em>direct</em> radiation from the sun and <em>diffuse</em> radiation from the sky and from radiation scattered within the canopy. This distinction is relevant for understanding radiation absorption by the canopy and canopy-level photosynthesis. Two important implications are the following. First, diffuse radiation is more effectively absorbed by canopies, particularly at low LAI. The reduction of GPP under cloudy conditions is therefore less than what would be expected from considering only changes in <span class="math inline">\(I_0\)</span> (the effective <span class="math inline">\(k\)</span> is higher for diffuse radiation than for direct radiation).</p>
@@ -640,13 +643,13 @@ Figure&nbsp;4.6: The <em>A</em>-<em>c</em><sub>i</sub> curve. Net assimilation (
 </div>
 </div>
 </div>
-<div id="nte-fvcb" class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note&nbsp;4.1: Farquhar-von Caemmerer-Berry model
+Farquhar-von Caemmerer-Berry model
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1181,7 +1184,7 @@ Figure&nbsp;4.12: Response of canopy conductance (ecosystem-level aggregate stom
 <p>A simple empirical model for the <span class="math inline">\(G_s\)</span> response to VPD <span class="citation" data-cites="oren01">(<a href="references.html#ref-oren01" role="doc-biblioref">Oren et al. 2001</a>)</span> is given by <span class="math display">\[
 G_s = G_{s,\mathrm{ref}} \left(1 - m \ln D \right)\;.
 \]</span> Here, <span class="math inline">\(G_{s,\mathrm{ref}}\)</span> is a reference canopy conductance, <span class="math inline">\(D\)</span> is VPD, and <span class="math inline">\(m\)</span> is a stomatal sensitivity parameter. The data shown in <a href="#fig-novick16" class="quarto-xref">Figure&nbsp;<span>4.12</span></a> indicate that the sensitivity parameter <span class="math inline">\(m\)</span> is not a constant, but decreases with drying soils and tends to be lower at dry sites than at moist sites investigated by <span class="citation" data-cites="novick16natcc">Novick et al. (<a href="references.html#ref-novick16natcc" role="doc-biblioref">2016</a>)</span>.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1235,18 +1238,19 @@ g_s = \left( 1 + \frac{g_1}{\sqrt{D}} \right) \frac{A}{c_a - \Gamma^\ast}
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>wdf <span class="sc">|&gt;</span> </span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(apar, gpp)) <span class="sc">+</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">trans =</span> <span class="st">"log"</span>, <span class="at">option =</span> <span class="st">"magma"</span>, <span class="at">name =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="fu">coef</span>(linmod), <span class="at">linetype=</span><span class="st">"dotted"</span>) <span class="sc">+</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"PPFD"</span>  <span class="sc">%*%</span> <span class="st">"fAPAR (mol m"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>}, <span class="st">"s"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>)),</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"GPP (gC m"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>}, <span class="st">"s"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>)),</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">bquote</span>(</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        <span class="fu">italic</span>(R)<span class="sc">^</span><span class="dv">2</span> <span class="sc">==</span> .(rsq_lab)</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_point(alpha = 0.3) +</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">trans =</span> <span class="st">"log"</span>, <span class="at">option =</span> <span class="st">"magma"</span>, <span class="at">name =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="fu">coef</span>(linmod), <span class="at">linetype=</span><span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"PPFD"</span>  <span class="sc">%*%</span> <span class="st">"fAPAR (mol m"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>}, <span class="st">"s"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>)),</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"GPP (gC m"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>}, <span class="st">"s"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>)),</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">bquote</span>(</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        <span class="fu">italic</span>(R)<span class="sc">^</span><span class="dv">2</span> <span class="sc">==</span> .(rsq_lab)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-gpp-constlue" class="quarto-figure quarto-figure-center quarto-float anchored">
